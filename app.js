@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 /* Segregating the routes */
 const placesRoutes = require('./routes/places-routes');
+const usersRoutes = require('./routes/users-routes');
 /* Http Error class which construts the message and status */
 const HttpError = require('./models/http-error');
 
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 
 /* basename for the route and redirected to the placesRoutes middleware */
 app.use('/api/places', placesRoutes); // => /api/places...
+app.use('/api/users', usersRoutes);
 
 /* Whenever none of the above route matches, no response will be sent.hence this middleware is called to handle the missing route */
 app.use((req, res, next) => {
